@@ -1,0 +1,520 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+  
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+
+    <title>POL Yield Farmer</title>
+    <meta charset="utf-8" Set-Cookie: widget_session=abc123; SameSite=None; Secure />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <!--- Launch Timer 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Share+Tech+Mono'>
+    <link rel="stylesheet" href="assets/css/style.css"> --->
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://bnb.cropsyieldfarmer.online/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BNB Yield Farmer" />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="@BUSDCropFarmer" />
+    <meta property="twitter:url" content="https://twitter.com/BUSDCropFarmer" />
+    <meta name="twitter:title" content="BNB Yield Farmer" />
+    <meta name="twitter:description" content="The Latest dApp From PremCrypto Team" />
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="../cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CRaleway:300,300i,400,400i,500,500i,600,600i,700,700i%7CPoppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+  </head>
+
+  <style>
+  html, body {
+    height: auto;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  /* Default (Desktop) Background */
+  body {
+    background-image: url('assets/img/background2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: scroll;
+    background-color: #000;
+  }
+
+  @media (min-width: 769px) {
+    body {
+      background-attachment: fixed;
+    }
+  }
+
+  /* ✅ Mobile Version Fix */
+  @media only screen and (max-width: 768px) {
+    html, body {
+      height: 100%;
+      min-height: 100vh;
+    }
+
+    body {
+      background-image: url('assets/img/background-mobile.png'); /* ✅ safer relative path */
+      background-repeat: no-repeat;
+      background-size: cover; /* ✅ ensures full coverage */
+      background-position: top center;
+      background-attachment: scroll;
+      background-color: #000;
+    }
+  }
+
+  /* ✅ Ensure content scrolls correctly */
+  #hero {
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  header.fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    pointer-events: auto;
+  }
+
+  main {
+    margin-top: 80px;
+  }
+
+  section, div {
+    overflow: visible;
+  }
+</style>
+
+
+  <body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+      <div class="container d-flex align-items-center justify-content-lg-between">
+        <div class="logo-text" onclick="window.location.href='index-2.html'">
+          <img src="assets/img/logo2.png" alt="BNB Yield Farmer Logo" class="site-logo" />
+          <strong>THE <span class="highlight">POL</span> YIELD FARMER</strong>
+        </div>
+        
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li>
+              <a class="nav-link" href="workwithus.html"
+                target="_blank">Development</a>
+            </li>
+            <li>
+              <a class="nav-link" href="https://bscscan.com/address/0xa03B16B92C080C10485D6b91515C890c1BA66d2a#code"
+                target="_blank"> Smart Contract</a>
+            </li>
+            <li>
+              <a class="nav-link" href="https://t.me/BNBYieldFarmer" target="_blank">Telegram Group</a>
+            </li>
+            <li>
+              <a class="nav-link" href="https://github.com/0xApeiron/audits/blob/master/bnbyieldfarmer/BNBYieldFarmerRev.pdf" target="_blank">Audit Report</a>
+            </li>
+            
+          
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <div class="wallet-container">
+          <button id="walletButton" class="btn btn-warning btn-sm connect-btn">
+            Connect Wallet
+          </button>
+
+          <!-- 👇 Hidden dropdown for disconnect -->
+          <div id="walletDropdown" class="wallet-dropdown">
+            <button id="disconnectWallet" class="btn btn-sm btn-outline-danger">Disconnect</button>
+          </div>
+        </div>
+      </div>
+    </header> <!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center justify-content-center" style="margin-top:0; padding-bottom:1px;">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-6 col-lg-8">
+            <div id="banner-wrapper">
+              <div id="banner" class="box container">
+              </div>
+            </div>
+            <h1> 
+            <div class="banner-wrapper">
+              <a target="_blank">
+                <img src="assets/img/logo2.png" alt="BNBYieldFarmer" class="responsive-banner" style="width: 100%; max-width: 750px; height: 350px; border-radius: 6px;">
+              </a>
+            </div>
+          </h1>
+            <h2>
+              <span style="color:aliceblue">Grow Your <span style="color: #ffc451">POL</span>, Harvest Your Rewards.</span>
+            </h2>
+          </div>
+          
+        <div class="row gy-4 justify-content-center">
+          <div class="col-xl-2 col-md-4 hero-row">
+            <div class="icon-box">
+              <div class="header">
+                <i class="bi-bank"></i>
+                <span style="color: aliceblue; font-size: 18px;">Total Invested</span>
+              </div>
+              <strong id="total-invested" class="number" style="color: aliceblue; font-size: 18px;">0</strong>
+              <div>
+                <strong style="color: #ffc451; font-size: 18px;">POL</strong>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-2 col-md-4 hero-row">
+            <div class="icon-box">
+              <div class="header">
+                <i class="bi-bank"></i>
+                <span style="color: aliceblue; font-size: 18px;">TVL</span>
+              </div>
+              <strong id="contract-balance" style="color: aliceblue; font-size: 18px;" class="number">0</strong>
+              <div>
+                <strong style="color: #ffc451; font-size: 18px;">POL</strong>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-2 col-md-4 hero-row">
+            <div class="icon-box">
+              <div class="header">
+                <i class="bi-wallet2"></i>
+                <span style="color: aliceblue; font-size: 18px;">User Balance</span>
+              </div>
+              <div>
+                <strong id="user-balance" class="number" style="color: aliceblue; font-size: 18px;">0</strong>
+              </div>
+              <div>
+                <strong style="color: #ffc451; font-size: 18px;">POL</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section> <!-- End Hero -->
+    <section style="margin-top:0; padding-bottom:1px;">
+    <div class="referral-box">
+      <strong>Referral Link: </strong>
+      <span id="reflink" class="ref-text" style="color: rgba(255, 255, 255, 0.6); cursor:pointer;"></span>
+      <span onclick="copyRef()" style="cursor:pointer; margin-left:5px;">
+        <i class="ri-file-copy-line"></i>
+        <span id="copied"></span>
+      </span>
+    </div> 
+    </section>
+    <main id="main">
+      <!-- ======= Plans Section ======= -->
+      <section id="services" class="d-flex services align-items-center justify-content-center" style="margin-top:0; padding-top:1px;">
+        <div class="container">
+          <div class="row gy-4 mt-1">
+            <div class="col-lg-3 col-md-5">
+              <div class="icon-box">
+                <div class="icon">
+                  <img src="assets/img/PLAN1-2.png" alt="" class="img-fluid">
+                </div>
+                <h5 style="color: aliceblue;">Minimum Deposit: 5 <strong style="color: #ffc451">POL</strong></h5>
+                <h5 style="color: aliceblue;">Maximum Deposit: 500 <strong style="color: #ffc451">POL</strong></h5>
+                <!-- <h5>active deposits: <span id="active-invest1">0</span> <strong style="color: #ffc451">POL</strong></h5>
+              <h5>available: <span id="available1">0</span> <strong style="color: #ffc451">POL</strong></h5> -->
+                <div class="webdesigntuts-workshop">
+                  <form action="#" method="">
+                    <input type="number" class="form-control" id="eth-to-spend1" name="spend" step="1" value="1">
+                  </form>
+                </div>
+                <div class="main">
+                  <div class="btn" onclick="investInPlan1()" role="button">
+                    <p style="color: darkgreen;">Invest</p>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+                <div class="btn" onclick="ReinvestInPlan1()" role="button">
+                  <p style="color: darkgreen;">Compound</p>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <p>Next Compound: <span id="user-checkpoint-1"> 00H :00M :00S</span></p>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-5">
+              <div class="icon-box">
+                <div class="icon">
+                  <img src="assets/img/Plan2-2.png" alt="" class="img-fluid">
+                </div>
+                <h5 style="color: aliceblue;">Minimum Deposit: 5 <strong style="color: #ffc451">POL</strong></h5>
+                <h5 style="color: aliceblue;">Maximum Deposit: 2000 <strong style="color: #ffc451">POL</strong></h5>
+                <!-- <h5>active deposits: <span id="active-invest2">0</span> <strong style="color: #ffc451">POL</strong></h5>
+              <h5>available: <span id="available2">0</span> <strong style="color: #ffc451">POL</strong></h5> -->
+                <div class="webdesigntuts-workshop">
+                  <form action="#" method="">
+                    <input type="number" class="form-control" id="eth-to-spend2" name="spend" step="1" value="1">
+                  </form>
+                </div>
+                <div class="main">
+                  <div class="btn" onclick="investInPlan2()" role="button">
+                    <p style="color: darkgreen;">Invest</p>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+                <div class="btn" onclick="ReinvestInPlan2()" role="button">
+                  <p style="color: darkgreen;">Compound</p>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <p>Next Compound: <span id="user-checkpoint-2"> 00H :00M :00S</span></p>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-5">
+              <div class="icon-box">
+                <div class="icon">
+                  <img src="assets/img/PLAN3-3.png" alt="" class="img-fluid">
+                </div>
+                <h5 style="color: aliceblue;">Minimum Deposit: 5 <strong style="color: #ffc451">POL</strong></h5>
+                <h5 style="color: aliceblue;">Maximum Deposit: 10000 <strong style="color: #ffc451">POL</strong></h5>
+                <!-- <h5>active deposits: <span id="active-invest3">0</span> <strong style="color: #ffc451">POL</strong></h5>
+              <h5>available: <span id="available3">0</span> <strong style="color: #ffc451">POL</strong></h5> -->
+                <div class="webdesigntuts-workshop">
+                  <form action="#" method="">
+                    <input type="number" class="form-control" id="eth-to-spend3" name="spend" step="1" value="1">
+                  </form>
+                </div>
+                <div class="main">
+                  <div class="btn" onclick="investInPlan3()" role="button">
+                    <p style="color: darkgreen;">Invest</p>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+                <div class="btn" onclick="ReinvestInPlan3()" role="button">
+                  <p style="color: darkgreen;">Compound</p>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <p>Next Compound: <span id="user-checkpoint-3"> 00H :00M :00S</span></p>
+              </div>
+            </div>
+      </section> <!-- End Services Section -->
+
+      <!-- ======= Dashboard Section ======= -->
+      <section id="dashboard" class="services">
+        <div class="container">
+          <div class="section-title">
+            <div class="stats-container">
+              <div class="row gy-4 justify-content: space-evenly" style="color: aliceblue;">
+                <div class="col-xl-2 col-md-4 hero-row">
+                    <i class="ri-bank-line ri-1x"></i>
+                    User Deposits
+                    <div id="user-deposits">0</div>
+                    <strong style="color: #ffc451">POL</strong>
+                </div>
+
+                <div class="col-xl-2 col-md-4 hero-row">
+                    <i class="ri-wallet-2-line ri-1x"></i>
+                    User Withdrawn
+                    <div id="user-total-withdrawn">0</div>
+                    <strong style="color: #ffc451">POL</strong>
+                </div>
+                <div class="col-xl-2 col-md-4 hero-row">
+                    <i class="ri-wallet-2-line ri-1x"></i>
+                    <span>Total Commission</span> 
+                    <div id="user-referral-total-bonus">0.00</div>
+                    <strong style="color: #ffc451">POL</strong>
+                    <br>
+                </div>
+                <div class="col-xl-2 col-md-4 hero-row">
+                    <i class="ri-wallet-2-line ri-1x"></i>
+                    <span> Available </span>
+                    <div id="user-available">0</div>
+                    <strong style="color: #ffc451">POL</strong>
+                    <br>
+                    <span class="ref-text" style="font-size: 12px;">
+                    Reward stops in :
+                    </span>
+                  <span id="user-cutoff" style="font-size: 12px;" class="ref-text">
+                    0d 00h 00m
+                  </span>
+                </div>
+              </div>
+          <div style="text-align: center;">    
+            <!-- Withdraw Button -->
+                <section id="withdraw" style="margin-top: 0;"> <!-- tighten spacing -->
+                  <a href="#" class="btn2" onclick="withdraw()" role="button"
+                    style="display: inline-flex; align-items: center; justify-content: center;
+                            margin-top: 0; margin-bottom: 0; text-decoration: none;">
+                    <span class="btn-text" style="color: darkgreen;"><strong>Withdraw</strong></span>
+
+                    <!-- Animation Borders -->
+                    <span class="border-anim top"></span>
+                    <span class="border-anim right"></span>
+                    <span class="border-anim bottom"></span>
+                    <span class="border-anim left"></span>
+                  </a>
+                </section>
+                <!-- Claim Timer -->
+                <div class="referral-box2" 
+                    style="display: inline-flex; 
+                            justify-content: center; 
+                            align-items: center; 
+                            gap: 5px; 
+                            background: transparent; 
+                            border: none; 
+                            box-shadow: none;
+                            outline: none;
+                            border-radius: 10px; 
+                            padding: 4px 14px; 
+                            font-size: 12px;
+                            color: aliceblue;
+                            margin-top: 0;
+                            margin-bottom: 4px;"> <!-- same small gap -->
+                  <strong class="ref-text" style="font-weight: 400;">
+                    Claim Rewards in :
+                  </strong>
+                  <span id="user-withdraw-countdown" class="ref-text">
+                    0d 0h 00m
+                  </span>
+                </div>            
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> <!-- End Dashboard Section --> 
+      <section id="dashboard" class="services">
+        <div class="container">
+            <div class="stats-container">
+              <h1 style="color:aliceblue;text-align:center; margin-bottom: 20px;">Deposit Record</h1>
+              <div id="user-deposits" style="display:block;">
+                <table id="table-deposits" class="table-deposits">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th style="width: 10%;color:aliceblue;">Plan</th>
+                      <th style="width: 5%;color:aliceblue;">Rate</th>
+                      <th style="width: 15%;color:aliceblue;">Invested</th>
+                      <th style="width: 15%;color:aliceblue;">Remaining</th>
+                      <th style="width: 15%;color:aliceblue;">Reinvested</th>
+                    </tr>
+                  </thead>
+                  <tbody id="deposit-rows">
+                    <tr class="no-data">
+                      <td colspan="7" style="text-align:center;color:aliceblue;">No Deposits to Display</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+      </section> <!-- End Dashboard Section -->
+      </div>            
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> <!-- Network Statistic --> 
+      <section id="dashboard" class="services">
+        <div class="container">
+            <div class="stats-container">
+              <h1 style="color:aliceblue;text-align:center; margin-bottom: 20px;">TEAM MEMBERS</h1>
+              <div id="user-deposits" style="display:block;">
+                <table id="table-deposits" class="table-deposits">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th style="width: 10%;color:aliceblue;">Wallet</th>
+                      <th style="width: 5%;color:aliceblue;">Level</th>
+                    </tr>
+                  </thead>
+                  <tbody id="team-members-list-container">
+                    <tr class="no-data">
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+      </section> <!-- End Dashboard Section -->
+
+
+    </main> <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav>
+        </div>
+
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span> &copy; 2025 POL Yield Farmer by The PremCrypto Team. Grow your <strong style="color: #ffc451">POL</strong>, harvest your rewards.</span>
+        </div>
+      </div>
+      <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+          class="bi bi-arrow-up-short"></i></a>
+    </footer> <!-- End Footer -->
+
+
+    <!-- launch timer  -->
+    <script src='../cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js'></script>
+    <script src="assets/js/script.js"></script>
+    <!-- ✅ Scripts loaded after content -->
+<script src="../code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@walletconnect/web3-provider@1.8.0/dist/umd/index.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/web3modal@1.9.12/dist/index.js"></script>
+<script src="assets/js/interface_20220701_0800.js"></script>
+<script src="assets/js/main_eth_20220701_0800.js"></script>
+
+
+  </body>
+
+
+</html>
